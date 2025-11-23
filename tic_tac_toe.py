@@ -1,6 +1,7 @@
 import os
 from time import sleep
 from logo import logo, instructions
+from display import print_display
 
 
 class TicTacToe:
@@ -160,14 +161,14 @@ class TicTacToe:
         sleep(2)
 
         while True:
-            self.update_display()
+            print_display(self.board)
 
             if self.player1 == "Human":
                 self.human_move()
             else: 
                 self.computer_move()
 
-            self.update_display()
+            print_display(self.board)
             result = self.check_for_win()
             if result == 'tie':
                 print("Game ends in a TIE!")
@@ -185,7 +186,7 @@ class TicTacToe:
             else: 
                 self.computer_move()
 
-            self.update_display()
+            print_display(self.board)
             result = self.check_for_win()
             if result == 'tie':
                 print("Game ends in a TIE!")
@@ -197,27 +198,6 @@ class TicTacToe:
 
             self.player_turn = 1
         
-
-    def update_display(self):
-        """Method to update/print the game board"""
-        # clears the screen/terminal
-        os.system("cls")
-        # just to make the following f string easier, not a good naming convention
-        b = self.board
-        # create the board using a multi line string
-        display = f""" 
-               |       |
-           {b[0]}   |   {b[1]}   |   {b[2]}   
-        _______|_______|_______
-               |       |
-           {b[3]}   |   {b[4]}   |   {b[5]} 
-        _______|_______|_______
-               |       |
-           {b[6]}   |   {b[7]}   |   {b[8]} 
-               |       |
-        """
-
-        print(display)
 
 
 TicTacToe()
