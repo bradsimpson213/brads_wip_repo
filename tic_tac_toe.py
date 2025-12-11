@@ -6,6 +6,7 @@ from display import print_display
 
 class TicTacToe:
     """Class that creates instances of the Tic Tac Toe Game"""
+    
     def __init__(self):
         """Constructor to set up a game"""
         self.board = [' ', ' ', ' ', 
@@ -70,7 +71,7 @@ class TicTacToe:
             if move == ' ':
                 self.board[index] = "X" if self.player_turn == 1 else "O"
                 score = self.minimax(0, False)
-                # print("SCORE", score)
+                print(f"{index + 1}. Score: {score}")
                 self.board[index] = ' '
                 if score > best_score:
                     best_score = score
@@ -94,7 +95,7 @@ class TicTacToe:
         result = self.check_for_win()
         # recursive base case
         if result != None:
-            return scores[result]
+            return scores[result] - depth  # CHANGEd to - depth
         
         if is_maximizing:
             best_score = float("-inf")
@@ -151,7 +152,7 @@ class TicTacToe:
 
     def play_game(self):
         """Method to handle the game play"""
-        os.system("cls")
+        # os.system("cls")
         print(logo)
         print("Welcome to Tic Tac Toe!")
         self.player1 = self.set_player_type(1)

@@ -4,7 +4,7 @@ import os
 def print_display(board):
     """helper function to print the game board"""
     
-    os.system("cls")
+    # os.system("cls")
     b = board
     
     # create the board using a multi line string
