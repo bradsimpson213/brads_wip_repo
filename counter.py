@@ -3,16 +3,15 @@ from new_years import new_years_logo
 from datetime import datetime, timedelta
 import os
 
-class Counter:
+
+class Countdown:
     def __init__(self, logo=new_years_logo):
+        os.system("cls")
+        self.__event = input("What event are we counting down to? ")
         self.__datetime = None
         self.__logo = logo
         self.run_timer()
 
-
-    def get_datetime(self):
-        return self.__datetime
-    
 
     def set_datetime(self):
         new_date = input("Enter the countdown date in MM:DD:YYYY: ")
@@ -22,17 +21,13 @@ class Counter:
         self.__datetime = datetime(int(year), int(month), int(day), int(hour), int(minute))
 
 
-    def print_logo(self):
-        print(self.__logo)
-
-
     def run_timer(self):
         self.set_datetime()
         os.system("cls")
-        
+
         while True:
             now = datetime.now()
-            time_left = self.get_datetime() - now
+            time_left = self.__datetime - now
 
             if time_left <= timedelta(0):
                 print(self.__logo)
@@ -43,11 +38,10 @@ class Counter:
             hours, seconds = divmod(seconds, 3600)
             minutes, seconds = divmod(seconds, 60)
 
-       
-            countdown_display = f"Time remaining: {days} days, {hours:02d}:{minutes:02d}:{seconds:02d}"
+            countdown_display = f"Time remaining until {self.__event}: {days} days, {hours:02d}:{minutes:02d}:{seconds:02d}"
             print(countdown_display, end="\r")
         
             sleep(1)
         
 
-Counter()
+Countdown()
