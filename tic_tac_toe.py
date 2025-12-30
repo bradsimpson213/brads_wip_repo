@@ -95,7 +95,7 @@ class TicTacToe:
         result = self.check_for_win()
         # recursive base case
         if result != None:
-            return scores[result] - depth  # CHANGEd to - depth
+            return scores[result] - depth  # CHANGED to - depth
         
         if is_maximizing:
             best_score = float("-inf")
@@ -152,7 +152,7 @@ class TicTacToe:
 
     def play_game(self):
         """Method to handle the game play"""
-        # os.system("cls")
+        os.system("cls")
         print(logo)
         print("Welcome to Tic Tac Toe!")
         self.player1 = self.set_player_type(1)
