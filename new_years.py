@@ -8,3 +8,6 @@ new_years_logo = '''
               | |   | |     __/ |                                                    
               |_|   |_|    |___/                                                                                                          
 '''
+
+# make you own ASCII word art here!
+# https://patorjk.com/software/taag/#p=display&f=Big&t=TicTacToe
